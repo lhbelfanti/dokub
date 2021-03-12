@@ -20,6 +20,8 @@ install:
 build:
   stage: build
   image: docker:stable
+  services:
+    - docker:dind
   script:
     - docker build -t lhbelfanti/dokub/frontend -f 04-frontend/Dockerfile.dev 04-frontend/
   dependencies:
