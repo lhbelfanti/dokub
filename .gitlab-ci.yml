@@ -1,9 +1,22 @@
-sudo: required
-services:
-  - docker
+image: node:alpine
 
-before_install:
-  - docker build -t lhbelfanti/dokub/frontend -f 04-frontend/Dockerfile.dev ./04-frontend/
 
-script:
-  - docker run -e CI=true lhbelfanti/dokub/frontend npm run test
+stages:
+  - build
+  - test
+
+build:
+  stage: build
+  script:
+    - docker build -t lhbelfanti/dokub/frontend -f 04-frontend/Dockerfile.dev ./04-frontend/
+  only:
+    - master
+    - merge_requests
+
+test:
+  stage: test
+  script:
+    - docker run -e CI=true lhbelfanti/dokub/frontend npm run test
+  only:
+    - develop
+    - merge_requests
