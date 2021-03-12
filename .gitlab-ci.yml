@@ -17,6 +17,8 @@ test:
   stage: test
   script:
     - docker run -e CI=true lhbelfanti/dokub/frontend npm run test
+  dependencies:
+    - build
   only:
     - develop
     - merge_requests
