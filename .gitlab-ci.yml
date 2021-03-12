@@ -14,13 +14,13 @@ install:
     untracked: true
     expire_in: 30 mins
     paths:
-      - node_modules/
+      - ./04-frontend/node_modules/
 
 build:
   stage: build
   image: docker:stable
   script:
-    - docker build -t lhbelfanti/dokub/frontend -f 04-frontend/Dockerfile.dev ./04-frontend/
+    - docker build -t lhbelfanti/dokub/frontend -f ./04-frontend/Dockerfile.dev ./04-frontend/
   dependencies:
     - install
 
