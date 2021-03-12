@@ -1,0 +1,9 @@
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t lhbelfanti/dokub/frontend -f 04-frontend/Dockerfile.dev ./04-frontend/
+
+script:
+  - docker run -e CI=true lhbelfanti/dokub/frontend npm run test
