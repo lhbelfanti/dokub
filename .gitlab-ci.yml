@@ -9,9 +9,6 @@ build:
   stage: build
   script:
     - docker build -t lhbelfanti/dokub/frontend -f 04-frontend/Dockerfile.dev ./04-frontend/
-  only:
-    - master
-    - merge_requests
 
 test:
   stage: test
@@ -19,6 +16,3 @@ test:
     - docker run -e CI=true lhbelfanti/dokub/frontend npm run test
   dependencies:
     - build
-  only:
-    - develop
-    - merge_requests
