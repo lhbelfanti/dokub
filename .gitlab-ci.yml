@@ -1,35 +1,15 @@
-image: node:alpine
+image: docker:stable
+
+services:
+  - docker:dind
 
 stages:
-  - install
   - build
-  - test
-
-install:
-  stage: install
-  script:
-    - cd 04-frontend/
-    - npm install
-  artifacts:
-    name: "artifacts"
-    untracked: true
-    expire_in: 30 mins
-    paths:
-      - 04-frontend/node_modules/
 
 build:
   stage: build
-  image: docker:stable
-  services:
-    - docker:dind
+  before_script:
+    - cd 04-frontend/
   script:
-    - docker build -t lhbelfanti/dokub/frontend -f 04-frontend/Dockerfile.dev 04-frontend/
-  dependencies:
-    - install
-
-test:
-  stage: test
-  script:
+    - docker build -t lhbelfanti/dokub/frontend -f Dockerfile.dev .
     - docker run -e CI=true lhbelfanti/dokub/frontend npm run test
-  dependencies:
-    - build
