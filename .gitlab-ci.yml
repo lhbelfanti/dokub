@@ -4,23 +4,14 @@ services:
   - docker:dind
 
 stages:
-  - deploy
+  - build
 
-deploy:
-    stage: deploy
-    environment: production
-    # Setup AWS CLI to have proper credential key
-    image: registry.gitlab.com/gitlab-org/cloud-deploy/aws-ecs:latest
-    before_script:
-        - 'mkdir ~/.aws/'
-        - 'touch ~/.aws/credentials'
-        - 'printf "[eb-cli]\naws_access_key_id = %s\naws_secret_access_key = %s\n" "$AWS_ACCESS_KEY_ID" "$AWS_SECRET_ACCESS_KEY" >> ~/.aws/credentials'
-    # Run deployment using EB CLI deploy on master branch
-    script:
-        - 'git checkout master'
-        - 'eb deploy $AWS_EB_ENVIRONMENT'
-    # Ensure to run deployment only on master branch
-    only:
-        - master
+build:
+  stage: build
+  before_script:
+    - cd 04-frontend/
+  script:
+    - docker build -t lhbelfanti/dokub/frontend -f Dockerfile.dev .
+    - docker run -e CI=true lhbelfanti/dokub/frontend npm run test
   
     
