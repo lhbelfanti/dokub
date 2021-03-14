@@ -4,16 +4,7 @@ services:
   - docker:dind
 
 stages:
-  - build
   - deploy
-
-build:
-  stage: build
-  before_script:
-    - cd 04-frontend/
-  script:
-    - docker build -t lhbelfanti/dokub/frontend -f Dockerfile.dev .
-    - docker run -e CI=true lhbelfanti/dokub/frontend npm run test
 
 deploy:
     stage: deploy
