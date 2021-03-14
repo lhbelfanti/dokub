@@ -18,7 +18,7 @@ build:
 deploy:
     stage: deploy
     environment: production
-    # Setup AWS CLI to have proper credential keys
+    # Setup AWS CLI to have proper credential key
     before_script:
         - 'mkdir ~/.aws/'
         - 'touch ~/.aws/credentials'
