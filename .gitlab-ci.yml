@@ -19,6 +19,7 @@ deploy:
     stage: deploy
     environment: production
     # Setup AWS CLI to have proper credential key
+    image: registry.gitlab.com/gitlab-org/cloud-deploy/aws-ecs:latest
     before_script:
         - 'mkdir ~/.aws/'
         - 'touch ~/.aws/credentials'
