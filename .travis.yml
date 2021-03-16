@@ -1,0 +1,21 @@
+sudo: required
+services:
+  - docker
+
+language: generic 
+
+before_install:
+  - docker build -t lhbelfanti/dokub -f 04-frontend/Dockerfile.dev 04-frontend
+
+script:
+  - docker run -e CI=true lhbelfanti/dokub npm run test
+
+deploy:
+  provider: elasticbeanstalk
+  region: "us-east-2"
+  app: "dokub"
+  env: "Dokub-env"
+  bucket_name: "elasticbeanstalk-us-east-2-149011651000"
+  bucket_path: "dokub"
+  on:
+    branch: master
