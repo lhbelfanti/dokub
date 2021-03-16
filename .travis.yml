@@ -10,7 +10,7 @@ before_install:
 
 script:
   - docker run -e CI=true lhbelfanti/dokub npm run test
-  - zip -r /home/travis/build/lhbelfanti/dokub/04-frontend/deploy.zip ./*
+  - zip -r /home/travis/build/lhbelfanti/deploy.zip ./*
 
 deploy:
   provider: elasticbeanstalk
@@ -19,7 +19,7 @@ deploy:
   env: "Dokub-env"
   bucket_name: "elasticbeanstalk-us-east-2-149011651000"
   bucket_path: "dokub"
-  zip_file: "deploy.zip"
+  zip_file: "/home/travis/build/lhbelfanti/deploy.zip"
   on:
     branch: master
   access_key_id: $AWS_ACCESS_KEY
