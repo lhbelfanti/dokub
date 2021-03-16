@@ -10,7 +10,7 @@ before_install:
 
 script:
   - docker run -e CI=true lhbelfanti/dokub npm run test
-  - zip -r deploy.zip ./*
+  - zip -r /home/travis/build/lhbelfanti/dokub/04-frontend/deploy.zip ./*
 
 deploy:
   provider: elasticbeanstalk
