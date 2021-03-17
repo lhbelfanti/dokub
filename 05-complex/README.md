@@ -15,7 +15,7 @@ So, the first route will be to a React App and the second to an Express Server.
 ### Going deeper
 
 The application frontend has two sections:
-- "Values I have seen": Which shows the indices I've entered. This data is saved to a Postgres database.
+- "Values I have seen": Which shows the indexes I've entered. This data is saved to a Postgres database.
 - "Calculated values": Which shows the number calculated for a specific index. It's saved to a Redis database.
 
 ### Flow
@@ -26,7 +26,7 @@ The application frontend has two sections:
     1. First it takes that index and store it inside the Postgre database.
     2. At the same time it will take the index again and put it into the Redis database.
 4. When a new number shows up inside of the Redis database, it's going to take up a separate backend NodeJS process, that it's called Worker.
-5. The only job of this Worker is to watch for new indices that show up in Redis.
+5. The only job of this Worker is to watch for new indexes that show up in Redis.
     1. Each time it happens, the Worker will pull the value out.
     2. Then it will calculate the Fibonacci number for that index.
     3. Finally it will put that calculated number back into Redis, so that it can then be requested by the React App and eventually show up on the screen.
