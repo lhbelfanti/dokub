@@ -9,19 +9,12 @@ function App() {
   return (
     <Router>
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
+        <img src={logo} className="App-logo" alt="logo" />
+        <div>
           <Link to="/">Home</Link>
+          <br/>
           <Link to="/otherpage">Other Page</Link>
-        </header>
+        </div>
         <div>
           <Route exact path="/" component={Fib} />
           <Route path="/otherpage" component={OtherPage} />
