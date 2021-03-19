@@ -33,3 +33,15 @@ The application frontend has two sections:
 
 
 > **Again, this is an way more complicated application that it should be, but it's helpful to learn how to use more than one container in the same application.**
+
+## AWS
+
+It uses Elastic Beanstalk, and the application is deployed in a S3.
+
+Due possible billings, the application on Elastic Beanstalk was deleted. 
+
+> **_NOTE:_** If the bucket is created again in the future, you should follow the [AWS Configuration Cheat Sheet](#aws-configuration-cheat-sheet) and the .travis.yml file located in the 05-complex folder, should be moved to the root of this repository.
+
+### AWS Configuration Cheat Sheet
+
+To see all the steps to configure the AWS services, check [this document](./cheatsheet.md)
