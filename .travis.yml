@@ -1,0 +1,23 @@
+sudo: required
+language: generic
+services:
+  - docker
+
+before_install:
+  - docker build -t lhbelfanti/react-test -f ./05-complex/client/Dockerfile.dev ./05-complex/client
+
+script:
+  - docker run -e CI=true lhbelfanti/react-test npm test
+
+after_success:
+  - docker build -t lhbelfanti/multi-client ./05-complex/client
+  - docker build -t lhbelfanti/multi-nginx ./05-complex/nginx
+  - docker build -t lhbelfanti/multi-server ./05-complex/server
+  - docker build -t lhbelfanti/multi-worker ./05-complex/worker
+  # Log in to the docker CLI
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
+  # Take those images and push them to docker hub
+  - docker push lhbelfanti/multi-client
+  - docker push lhbelfanti/multi-nginx
+  - docker push lhbelfanti/multi-server
+  - docker push lhbelfanti/multi-worker
