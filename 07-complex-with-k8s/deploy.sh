@@ -10,7 +10,7 @@ docker push lhbelfanti/multi-client:$SHA
 docker push lhbelfanti/multi-server:$SHA
 docker push lhbelfanti/multi-worker:$SHA
 
-kubectl apply -f k8s
+kubectl apply -f ./07-complex-with-k8s/k8s
 
 kubectl set image deployments/client-deployments client=lhbelfanti/multi-client:$SHA
 kubectl set image deployments/server-deployments server=lhbelfanti/multi-server:$SHA
