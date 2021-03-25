@@ -2,6 +2,8 @@
 
 The main idea of this project is to migrate the previous created [Multi Container App inside the 05-complex folder](../05-complex/README.md), to Kubernetes.
 
+Some parts of this project have to be done in Github instead of Gitlab due Gitlab support for Travis CLI.
+
 ## Objective:
 ![Multi Container App with Kubernetes](./objective.png)
 
@@ -45,3 +47,29 @@ If you wish to instead create a sample user, you can follow the instructions her
 https://github.com/kubernetes/dashboard/blob/master/docs/user/access-control/creating-sample-user.md
 
 
+## GKE creation steps
+
+1. Click the Hamburger menu on the top left-hand side of the dashboard.
+2. Click Kubernetes Engine.
+3. Click the ENABLE button to enable the Kubernetes API for this project.
+4. After a few minutes of waiting, clicking the bell icon in the top right part of the menu should show a green checkmark for Enable services: container.googleapis.com
+5. If you refresh the page it should show a screen to create your first cluster. If not, click the hamburger menu and select Kubernetes Engine and then Clusters.
+Once you see the screen below, click the CREATE button.
+6. A Create Cluster dialog will open and provide two choices. Standard and Autopilot. Click the CONFIGURE button within the Standard cluster option.
+7. A form will be shown. 
+  1. Set the Name to multi-cluster. 
+  2. Confirm that the Zone set is actually near your location. 
+  3. The Node Pool is found in a separate dropdown on the left sidebar. Click the downward-facing arrow to view the settings. No changes are needed here. 
+  4. Finally, click the CREATE button at the bottom of the form.
+8. After a few minutes, the cluster dashboard should load and your multi-cluster should have a green checkmark in the table.
+
+## Service Account steps for new GCP UI
+1. Click the Hamburger menu on the top left-hand side of the dashboard, find IAM & Admin, and select Service Accounts. Then click the CREATE SERVICE ACCOUNT button.
+2. In the form that is displayed, set the Service account name to travis-deployer, then click the CREATE button.
+3. Click in the Select a role filter and scroll down to select Kubernetes Engine and then Kubernetes Engine Admin.
+4. Make sure the filter now shows Kubernetes Engine Admin and then click CONTINUE.
+5. The Grant users access form is optional and should be skipped. Click the DONE button.
+6. You should now see a table listing all of the service accounts including the one that was just created. Click the three dots to the right of the service account you just created. Then select Manage Keys in the dropdown.
+7. In the Keys dashboard, click ADD KEY and then select Create new key.
+8. In the Create private key dialog box, make sure Key type is set to JSON, and then click the CREATE button.
+9. The JSON key file should now download to your computer.
