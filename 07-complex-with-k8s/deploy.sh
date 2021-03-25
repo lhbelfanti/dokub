@@ -1,6 +1,6 @@
-docker build -t lhbelfanti/multi-client:latest -t lhbelfanti/multi-worker:$SHA -f ./client/Dockerfile ./client
-docker build -t lhbelfanti/multi-server:latest -t lhbelfanti/multi-worker:$SHA -f ./server/Dockerfile ./server
-docker build -t lhbelfanti/multi-worker:latest -t lhbelfanti/multi-worker:$SHA -f ./worker/Dockerfile ./worker
+docker build -t lhbelfanti/multi-client:latest -t lhbelfanti/multi-worker:$SHA -f ./client/Dockerfile ./07-complex-with-k8s/client
+docker build -t lhbelfanti/multi-server:latest -t lhbelfanti/multi-worker:$SHA -f ./server/Dockerfile ./07-complex-with-k8s/server
+docker build -t lhbelfanti/multi-worker:latest -t lhbelfanti/multi-worker:$SHA -f ./worker/Dockerfile ./07-complex-with-k8s/worker
 
 docker push lhbelfanti/multi-client:latest
 docker push lhbelfanti/multi-server:latest
