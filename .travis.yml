@@ -1,8 +1,27 @@
 sudo: required
 services:
   - docker
+env:
+  global:
+    - SHA=$(git rev-parse HEAD)
+    - CLOUDSDK_CORE_DISABLE_PROMPTS=1
 before_install:
+  - openssl aes-256-cbc -K $encrypted_9f3b5599b056_key -iv $encrypted_9f3b5599b056_iv -in ./07-complex-with-k8s/service-account.json.enc -out service-account.json -d
   - curl https://sdk.cloud.google.com | bash > /dev/null;
   - source $HOME/google-cloud-sdk/path.bash.inc
   - gcloud components update kubectl
   - gcloud auth activate-service-account --key-file service-account.json
+  - gcloud config set project celtic-current-308702
+  - gcloud config set compute/zone southamerica-east1-a
+  - gcloud container clusters get-credentials multi-cluster
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+  - docker build -t lhbelfanti/react-test -f ./07-complex-with-k8s/client/Dockerfile.dev ./07-complex-with-k8s/client
+
+script:
+  - docker run -e CI=true lhbelfanti/react-test npm test
+
+deploy:
+  provider: script
+  script: bash ./07-complex-with-k8s/deploy.sh
+  on:
+    branch: master
