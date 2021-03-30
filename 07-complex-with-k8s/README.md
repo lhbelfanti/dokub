@@ -2,7 +2,7 @@
 
 The main idea of this project is to migrate the previous created [Multi Container App inside the 05-complex folder](../05-complex/README.md), to Kubernetes.
 
-Some parts of this project have to be done in Github instead of Gitlab due Gitlab support for Travis CLI.
+Some parts of this project have to be done in Github instead of [Gitlab](https://gitlab.com/lhbelfanti/dokub) due Gitlab support for Travis CLI.
 
 ## Objective:
 ![Multi Container App with Kubernetes](./objective.png)
@@ -48,7 +48,6 @@ https://github.com/kubernetes/dashboard/blob/master/docs/user/access-control/cre
 
 
 ## GKE creation steps
-
 1. Click the Hamburger menu on the top left-hand side of the dashboard.
 2. Click Kubernetes Engine.
 3. Click the ENABLE button to enable the Kubernetes API for this project.
@@ -73,3 +72,5 @@ Once you see the screen below, click the CREATE button.
 7. In the Keys dashboard, click ADD KEY and then select Create new key.
 8. In the Create private key dialog box, make sure Key type is set to JSON, and then click the CREATE button.
 9. The JSON key file should now download to your computer.
+
+> **_NOTE:_** If the Kubernetes server is created again in the future, you should follow the [GKE creation steps](#gke-creation-steps), the [Service Account steps for new GCP UI](#service-account-steps-for-new-gcp-ui) and the **.travis.yml** file located in the 07-complex-with-k8s folder, should be moved to the root of this repository.
