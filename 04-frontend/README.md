@@ -1,4 +1,4 @@
-# Frontend project
+# Frontend App
 
 This project uses a Docker, Travis CI and AWS, to build the project, run the tests and deploy a new version of it when a change is made over the master branch.
 

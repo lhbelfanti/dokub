@@ -1,4 +1,4 @@
-# Simple Kubernetes
+# Simple Kubernetes App
 
 Starting with Kubernetes (k8s). 
 
