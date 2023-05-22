@@ -1,7 +1,7 @@
 <div align="center">
   <picture>
     <source media="(prefers-color-scheme: dark)" srcset="media/dokub-dark.png">
-    <source media="(prefers-color-scheme: light)" srcset="media/light.png">
+    <source media="(prefers-color-scheme: light)" srcset="media/dokub-light.png">
     <img alt="Dokub - Repository to learn Docker and Kubernetes." src="media/dokub-dark.png">
   </picture>
 
