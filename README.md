@@ -1,10 +1,9 @@
 <div align="center">
-  <img src="media/dokub-logo.png" style="margin-bottom: 10px;" width="100"  height="100"/>
-  
-  <h1 align="center">Dokub</h1>
-  <div style="margin-bottom: 10px;">
-    Repository to learn Docker and Kubernetes.
-  </div>
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="media/dokub-dark.png">
+    <source media="(prefers-color-scheme: light)" srcset="media/light.png">
+    <img alt="Dokub - Repository to learn Docker and Kubernetes." src="media/dokub-dark.png">
+  </picture>
 
   <br />
 
