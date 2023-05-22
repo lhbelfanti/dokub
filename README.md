@@ -7,7 +7,7 @@
   </div>
 
   ![GitHub repo size](https://img.shields.io/github/repo-size/lhbelfanti/dokub?label=Repo%20size&style=flat-square)
-  ![License](https://img.shields.io/github/license/lhbelfanti/dokub?label=License&style=flat-square)
+  ![License](https://img.shields.io/github/license/lhbelfanti/dokub?style=for-the-badge)
 </div>
 
 <br />
