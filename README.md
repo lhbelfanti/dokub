@@ -12,8 +12,6 @@
   ![License](https://img.shields.io/github/license/lhbelfanti/dokub?style=for-the-badge)
 </div>
 
-<br />
-
 ## Content
 It is composed by __**7**__ different projects listed below. Each one of them increases the complexity of the previous one, integrating the different concepts of the course: **Docker, containers, Docker Compose, Kubernetes, Nginx, Travis CI and AWS / Google Cloud Platform**.
 
