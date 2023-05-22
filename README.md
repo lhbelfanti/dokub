@@ -6,6 +6,8 @@
     Repository to learn Docker and Kubernetes.
   </div>
 
+  <br />
+
   ![GitHub repo size](https://img.shields.io/github/repo-size/lhbelfanti/dokub?style=for-the-badge)
   ![License](https://img.shields.io/github/license/lhbelfanti/dokub?style=for-the-badge)
 </div>
