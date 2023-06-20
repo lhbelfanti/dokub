@@ -1,15 +1,15 @@
-<div align="center">
-  <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="media/dokub-dark.png">
-    <source media="(prefers-color-scheme: light)" srcset="media/dokub-light.png">
-    <img alt="Dokub - Repository to learn Docker and Kubernetes." src="media/dokub-dark.png">
-  </picture>
+<p align="center">
+  <img src="media/dokub-logo.png" width="100" alt="Repository logo" />
+</p>
+<h3 align="center">Dokub</h3>
+<p align="center">Repository to learn Docker and Kubernetes<p>
+<p align="center">
+    <img src="https://img.shields.io/github/repo-size/lhbelfanti/dokub?label=Repo%20size" alt="Repo size" />
+    <img src="https://img.shields.io/github/license/lhbelfanti/dokub?label=License" alt="License" />
+</p>
 
-  <br />
-
-  ![GitHub repo size](https://img.shields.io/github/repo-size/lhbelfanti/dokub?style=for-the-badge)
-  ![License](https://img.shields.io/github/license/lhbelfanti/dokub?style=for-the-badge)
-</div>
+---
+# Dokub
 
 ## Content
 It is composed by __**7**__ different projects listed below. Each one of them increases the complexity of the previous one, integrating the different concepts of the course: **Docker, containers, Docker Compose, Kubernetes, Nginx, Travis CI and AWS / Google Cloud Platform**.
